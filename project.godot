@@ -13,6 +13,7 @@ config_version=4
 config/name="VideoJuego naMenu"
 run/main_scene="res://juego/menus/MenuPrincipal.tscn"
 config/icon="res://recursos/Players/bunny2_stand.png"
+config/windows_native_icon="res://bunny2_stand.ico"
 
 [autoload]
 
