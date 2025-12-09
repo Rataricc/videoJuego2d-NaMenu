@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rayo.wav-5b44466223b52d11bb7df1eb2b5284da.sample"
+
+[deps]
+
+source_file="res://recursos/Sfx/Rayo.wav"
+dest_files=[ "res://.import/Rayo.wav-5b44466223b52d11bb7df1eb2b5284da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

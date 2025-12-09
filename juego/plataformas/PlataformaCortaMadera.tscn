@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://recursos/Environment/ground_wood_small.png" type="Texture" id=1]
+[ext_resource path="res://juego/plataformas/PlataformaCorta.tscn" type="PackedScene" id=2]
+
+[node name="PlataformaCortaMadera" instance=ExtResource( 2 )]
+z_index = 0
+z_as_relative = true
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://recursos/Environment/ground_grass.png" type="Texture" id=1]
+
+[node name="Plataforma" type="StaticBody2D"]
+scale = Vector2( 1.5, 0.3 )
+z_index = 40
+z_as_relative = false
+collision_layer = 4
+collision_mask = 10
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -165.5, -47, 170.5, -47.5, 180, -45, 187.5, -39.5, 190.063, -31.5726, 190.168, -16.3486, 188.5, -12, 164, 28.5, 160.5, 34, 152.5, 36, -153.936, 46.5546, -161.875, 46.6474, -189.803, -16.3486, -189.803, -31.5727, -188.375, -36.2772, -185.855, -40.687, -181.445, -44.7817, -176.406, -46.3566 )
+__meta__ = {
+"_edit_lock_": true
+}
