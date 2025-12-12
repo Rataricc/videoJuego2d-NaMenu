@@ -22,7 +22,7 @@ func generar_puntaje():
 	var valor_oro = monedaOro * 10
 	var valor_plata = monedaPlata * 5
 	var valor_bronce = monedaBronce * 2
-	puntaje = valor_oro + valor_plata + valor_plata
+	puntaje = valor_oro + valor_plata + valor_bronce
 	return puntaje
 
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://juego/plataformas/PlataformaLarga.tscn" type="PackedScene" id=1]
 [ext_resource path="res://juego/personaje/NaMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://juego/objetos/Pinchos.tscn" type="PackedScene" id=3]
 [ext_resource path="res://juego/menus/MenuPausa.tscn" type="PackedScene" id=4]
 [ext_resource path="res://juego/interfaz/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://juego/objetos/Portal.tscn" type="PackedScene" id=6]
@@ -80,9 +79,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pinchos" parent="." instance=ExtResource( 3 )]
-position = Vector2( 459.311, 348.285 )
-
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 616.463, 283.288 )
 nivel_proximo = "res://juego/menus/MenuVictoria.tscn"
@@ -90,7 +86,7 @@ nivel_proximo = "res://juego/menus/MenuVictoria.tscn"
 [node name="Zanahorias" type="Node" parent="."]
 
 [node name="ZanahoriaPortalLlave" parent="Zanahorias" instance=ExtResource( 7 )]
-position = Vector2( 457.922, 258.361 )
+position = Vector2( 419.824, 302.808 )
 
 [node name="ZanahoriaPortalLlave2" parent="Zanahorias" instance=ExtResource( 7 )]
 position = Vector2( 156.798, 302.906 )

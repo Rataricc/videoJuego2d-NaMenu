@@ -1,0 +1,146 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://juego/objetos/ZanahoriaPortalLlave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/plataformas/PlataformaLarga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juego/interfaz/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/menus/MenuPausa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://juego/personaje/NaMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://juego/objetos/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://juego/personaje/NaMenu.gd" type="Script" id=7]
+[ext_resource path="res://recursos/Background/bg_layer4.png" type="Texture" id=8]
+[ext_resource path="res://recursos/Background/bg_layer1.png" type="Texture" id=9]
+[ext_resource path="res://recursos/Background/bg_layer3.png" type="Texture" id=10]
+[ext_resource path="res://recursos/Background/bg_layer2.png" type="Texture" id=11]
+[ext_resource path="res://juego/menus/MenuPausa.gd" type="Script" id=12]
+[ext_resource path="res://juego/objetos/ZanahoriaPortalLlave.gd" type="Script" id=13]
+[ext_resource path="res://juego/interfaz/HUD.gd" type="Script" id=14]
+[ext_resource path="res://juego/objetos/Portal.gd" type="Script" id=15]
+
+[node name="Nivel_4" type="Node2D"]
+
+[node name="NaMenu3" type="KinematicBody2D" parent="." groups=[
+"player",
+] instance=ExtResource( 5 )]
+position = Vector2( 291.15, 345.218 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 50
+z_as_relative = false
+collision_layer = 2
+collision_mask = 29
+script = ExtResource( 7 )
+velocidad = Vector2( 400, 900 )
+
+[node name="PlataformaLarga3" type="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 375.662, 358.672 )
+scale = Vector2( 1.5, 0.3 )
+z_index = 40
+z_as_relative = false
+collision_layer = 4
+collision_mask = 10
+
+[node name="CapaFrente3" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CapaFrente3" instance=ExtResource( 3 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.44545
+margin_right = 0.445435
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 157.746 ],
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPausa" type="Control" parent="CapaFrente3" instance=ExtResource( 4 )]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -350 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxFondo"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxNubesLejanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxNubesMedias"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground3"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxNubesCercanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portal3" type="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 616.463, 283.288 )
+z_index = 60
+z_as_relative = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 15 )
+nivel_proximo = "res://juego/menus/MenuVictoria.tscn"
+
+[node name="Zanahorias3" type="Node" parent="."]
+
+[node name="ZanahoriaPortalLlave" type="Area2D" parent="Zanahorias3" instance=ExtResource( 1 )]
+position = Vector2( 419.824, 302.808 )
+scale = Vector2( 0.6, 0.6 )
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 13 )
+
+[node name="ZanahoriaPortalLlave2" type="Area2D" parent="Zanahorias3" instance=ExtResource( 1 )]
+position = Vector2( 156.798, 302.906 )
+scale = Vector2( 0.6, 0.6 )
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 13 )
+
+[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias/ZanahoriaPortalLlave" to="Zanahorias/ZanahoriaPortalLlave" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias/ZanahoriaPortalLlave2" to="Zanahorias/ZanahoriaPortalLlave2" method="_on_body_entered"]
+[connection signal="body_entered" from="Portal2" to="Portal2" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias2/ZanahoriaPortalLlave" to="Zanahorias2/ZanahoriaPortalLlave" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias2/ZanahoriaPortalLlave2" to="Zanahorias2/ZanahoriaPortalLlave2" method="_on_body_entered"]
+[connection signal="body_entered" from="Portal3" to="Portal3" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias3/ZanahoriaPortalLlave" to="Zanahorias3/ZanahoriaPortalLlave" method="_on_body_entered"]
+[connection signal="body_entered" from="Zanahorias3/ZanahoriaPortalLlave2" to="Zanahorias3/ZanahoriaPortalLlave2" method="_on_body_entered"]

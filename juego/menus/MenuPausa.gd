@@ -14,3 +14,8 @@ func _input(event):
 func _on_Continuar_pressed():
 	get_tree().paused = false
 	visible = false
+
+
+func _on_MenuPrincipal_pressed():
+	get_tree().paused = false
+	get_tree().change_scene("res://juego/menus/MenuPrincipal.tscn")

@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://juego/personaje/NaMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://juego/objetos/Portal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://juego/objetos/ZanahoriaPortalLlave.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/menus/MenuPausa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://juego/interfaz/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://juego/plataformas/PlataformaLarga.tscn" type="PackedScene" id=6]
+[ext_resource path="res://recursos/Background/bg_layer1.png" type="Texture" id=7]
+[ext_resource path="res://recursos/Background/bg_layer3.png" type="Texture" id=8]
+[ext_resource path="res://recursos/Background/bg_layer2.png" type="Texture" id=9]
+[ext_resource path="res://recursos/Background/bg_layer4.png" type="Texture" id=10]
+[ext_resource path="res://juego/objetos/Pinchos.tscn" type="PackedScene" id=16]
+[ext_resource path="res://juego/plataformas/PlataformaCorta.tscn" type="PackedScene" id=17]
+[ext_resource path="res://juego/Niveles/Nivel.gd" type="Script" id=18]
+
+[node name="Nivel_2" type="Node2D"]
+script = ExtResource( 18 )
+nivel_actual = "res://juego/Niveles/Nivel_2.tscn"
+
+[node name="CapaFrente" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CapaFrente" instance=ExtResource( 5 )]
+
+[node name="MenuPausa" parent="CapaFrente" instance=ExtResource( 4 )]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -350 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_left = 6.34955
+margin_right = 2054.35
+margin_bottom = 2048.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Zanahorias" type="Node" parent="."]
+
+[node name="ZanahoriaPortalLlave" parent="Zanahorias" instance=ExtResource( 3 )]
+position = Vector2( 848.672, 304.095 )
+
+[node name="ZanahoriaPortalLlave3" parent="Zanahorias" instance=ExtResource( 3 )]
+position = Vector2( 1226.99, 228.216 )
+
+[node name="ZanahoriaPortalLlave2" parent="Zanahorias" instance=ExtResource( 3 )]
+position = Vector2( 127.133, 302.906 )
+
+[node name="Plataformas" type="Node" parent="."]
+
+[node name="PlataformaLarga" parent="Plataformas" instance=ExtResource( 6 )]
+position = Vector2( 375.662, 358.672 )
+
+[node name="PlataformaCorta" parent="Plataformas" instance=ExtResource( 17 )]
+position = Vector2( 949.266, 361.927 )
+
+[node name="PlataformaCorta2" parent="Plataformas" instance=ExtResource( 17 )]
+position = Vector2( 1348.39, 279.965 )
+
+[node name="Pinchos" type="Node" parent="."]
+
+[node name="Pinchos" parent="Pinchos" instance=ExtResource( 16 )]
+position = Vector2( 965.862, 346.839 )
+
+[node name="Pinchos3" parent="Pinchos" instance=ExtResource( 16 )]
+position = Vector2( 1295.48, 265.932 )
+
+[node name="Pinchos2" parent="Pinchos" instance=ExtResource( 16 )]
+position = Vector2( 446.277, 346.215 )
+
+[node name="Portal" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1515.75, 201.035 )
+nivel_proximo = "res://juego/Niveles/Nivel_3.tscn"
+
+[node name="NaMenu" parent="." instance=ExtResource( 1 )]
+position = Vector2( 230.117, 345.211 )
+velocidad = Vector2( 400, 900 )
+fuerza_rebote = 400
